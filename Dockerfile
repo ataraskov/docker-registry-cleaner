@@ -1,4 +1,5 @@
 FROM golang:1.17.8-bullseye AS builder
+LABEL org.opencontainers.image.source=https://github.com/ataraskov/docker-registry-cleaner
 ARG VERSION=dev \
     COMMIT=unknown
 WORKDIR /go/src/app
