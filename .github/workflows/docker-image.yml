@@ -26,7 +26,13 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag "$IMAGE_ID" --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}"
+        run: |
+          docker build \
+            --build-arg COMMIT=${{ github.sha }} \
+            --build-arg VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')  \
+            --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+            --tag "$IMAGE_ID" \
+            .
 
       - name: Log in to registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
