@@ -5,11 +5,10 @@ on:
     # Publish `master` as Docker `latest` image.
     branches:
       - master
-      - feature/*
 
     # Publish `v1.2.3` tags as releases.
-#    tags:
-#      - v*
+    tags:
+      - v*
 
 env:
   IMAGE_ID: ghcr.io/${{ github.repository }}
