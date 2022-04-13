@@ -1,4 +1,4 @@
-name: Build and Push Docker image
+name: Build and Push Docker Image
 
 on:   
   push:
@@ -43,4 +43,5 @@ jobs:
           [ "$VERSION" == "master" ] && VERSION=latest
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
+          docker tag  $IMAGE_ID $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
