@@ -1,0 +1,37 @@
+name: Release
+
+on: push
+
+env:
+  BINARY_NAME: docker-registry-cleaner
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [linux, darwin, windows]
+        goarch: [amd64]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: build binaries
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.17
+      - run: |
+          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} CGO_ENABLED=0 \
+          go build \
+             -o $BINARY_NAME \
+             -ldflags="-X=main.version=${{ github.ref_name }} -X=main.gitCommit=${{ github.sha }}" \
+             *.go && \
+          zip $BINARY_NAME-${{ matrix.goos }}-${{ matrix.goarch }}.zip \
+              $BINARY_NAME
+  
+      - name: release
+        uses: softprops/action-gh-release@v0.1.14
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          draft: true
+          files: '*.zip'
