@@ -65,7 +65,7 @@ var (
 	delete      = flag.Bool("delete", false, "delete found image(s)")
 	semverSort  = flag.Bool("semver", false, "use semantic versioning sort (instead of lexicographical)")
 	showVer     = flag.Bool("version", false, "show version info and exit")
-	retention   = flag.Int("retention", 0, "copies to keep")
+	retention   = flag.Int("retention", 0, "copies to keep (applies to tags list)")
 	headers     = http.Header{http.CanonicalHeaderKey("Accept"): {"application/vnd.docker.distribution.manifest.v2+json", "application/vnd.docker.distribution.manifest.list.v2+json"}}
 )
 
