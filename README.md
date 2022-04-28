@@ -37,11 +37,20 @@ Help/Options:
 
 List images sorted in semantic versioning fashion for registry 'registry:5000' in 'my-net' docker network:
 
-    docker run --rm --network my-net ghcr.io/ataraskov/docker-registry-cleaner:0.0.2 --semver --registry http://registry:5000
+    docker run \
+      --rm \
+      --network my-net \
+      ghcr.io/ataraskov/docker-registry-cleaner:0.0.2 \
+        --semver \
+        --registry http://registry:5000
 
-Mark to remove tags starting with 'dev' from repository 'my-repo' older than 7 days (image will not be removed if it has at least one other tag left, i.e. not starting with 'dev'):
+Mark for removal, tags starting with 'dev' from repository 'my-repo' older than 7 days (image will not be removed if it has at least one other tag left, i.e. not starting with 'dev'):
 
-    docker-registry-cleaner --repository my-repo --tag '^dev' --days 7 --delete
+    docker-registry-cleaner \
+      --repository my-repo \
+      --tag '^dev' \
+      --days 7 \
+      --delete
 
 Run garbage collect on registry running in container 'my-registry' (this command removes blobs from the disk):
 
