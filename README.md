@@ -1,4 +1,4 @@
-[![Image](https://github.com/ataraskov/docker-registry-cleaner/actions/workflows/image.yml/badge.svg)](https://github.com/ataraskov/docker-registry-cleaner/actions/workflows/image.yml) [![Release](https://github.com/ataraskov/docker-registry-cleaner/actions/workflows/release.yml/badge.svg)](https://github.com/ataraskov/docker-registry-cleaner/actions/workflows/release.yml)
+[![Image](https://github.com/ataraskov/docker-registry-cleaner/actions/workflows/image.yml/badge.svg)](https://github.com/ataraskov/docker-registry-cleaner/actions/workflows/image.yml) [![Build](https://github.com/ataraskov/docker-registry-cleaner/actions/workflows/release.yml/badge.svg)](https://github.com/ataraskov/docker-registry-cleaner/actions/workflows/release.yml) [![Version](https://img.shields.io/github/v/release/ataraskov/docker-registry-cleaner.svg?color=32ca55&label=Version)](https://github.com/ataraskov/docker-registry-cleaner/releases/latest)
 
 # docker-registry-cleaner
 Simple and ugly docker registry cleaner
